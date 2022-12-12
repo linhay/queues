@@ -383,17 +383,17 @@ public final class ScheduleBuilder {
     }
     
     /// The caledar used to compute the next date
-    var calendar: Calendar
+    public var calendar: Calendar
     
     /// Date to perform task (one-off job)
-    var date: Date?
-    var month: Month?
-    var day: Day?
-    var weekday: Weekday?
-    var time: Time?
-    var minute: Minute?
-    var second: Second?
-    var millisecond: Int?
+    public var date: Date?
+    public var month: Month?
+    public var day: Day?
+    public var weekday: Weekday?
+    public var time: Time?
+    public var minute: Minute?
+    public var second: Second?
+    public var millisecond: Int?
 
     public init(calendar: Calendar = .current) {
         self.calendar = calendar
