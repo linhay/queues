@@ -44,8 +44,8 @@ public final class ScheduleBuilder {
 
     /// Describes a time of day
     public struct Time: ExpressibleByStringLiteral, CustomStringConvertible {
-        var hour: Hour24
-        var minute: Minute
+        public var hour: Hour24
+        public var minute: Minute
 
         /// Returns a `Time` object at midnight (12:00 AM)
         public static var midnight: Time {
@@ -122,14 +122,14 @@ public final class ScheduleBuilder {
 
     /// Represents an hour numeral that must be in 12 hour format
     public struct Hour12: ExpressibleByIntegerLiteral, CustomStringConvertible {
-        let number: Int
+        public let number: Int
 
         /// The readable description of the hour
         public var description: String {
             return self.number.description
         }
 
-        init(_ number: Int) {
+        public init(_ number: Int) {
             precondition(number > 0, "12-hour clock cannot preceed 1")
             precondition(number <= 12, "12-hour clock cannot exceed 12")
             self.number = number
@@ -143,7 +143,7 @@ public final class ScheduleBuilder {
 
     /// Represents an hour numeral that must be in 24 hour format
     public struct Hour24: ExpressibleByIntegerLiteral, CustomStringConvertible {
-        let number: Int
+        public let number: Int
 
         /// The readable description of the hour, zero padding included
         public var description: String {
@@ -155,7 +155,7 @@ public final class ScheduleBuilder {
             }
         }
 
-        init(_ number: Int) {
+        public init(_ number: Int) {
             precondition(number >= 0, "24-hour clock cannot preceed 0")
             precondition(number < 24, "24-hour clock cannot exceed 24")
             self.number = number
@@ -182,7 +182,7 @@ public final class ScheduleBuilder {
             }
         }
 
-        init(_ string: String) {
+        public init(_ string: String) {
             switch string.lowercased() {
             case "am":
                 self = .am
@@ -201,7 +201,7 @@ public final class ScheduleBuilder {
 
     /// Describes a minute numeral
     public struct Minute: ExpressibleByIntegerLiteral, CustomStringConvertible {
-        let number: Int
+        public let number: Int
 
         /// The readable minute, zero padded.
         public var description: String {
@@ -213,7 +213,7 @@ public final class ScheduleBuilder {
             }
         }
 
-        init(_ number: Int) {
+        public init(_ number: Int) {
             assert(number >= 0, "Minute cannot preceed 0")
             assert(number < 60, "Minute cannot exceed 60")
             self.number = number
@@ -227,7 +227,7 @@ public final class ScheduleBuilder {
     
     /// Describes a second numeral
     public struct Second: ExpressibleByIntegerLiteral, CustomStringConvertible {
-        let number: Int
+        public let number: Int
 
         /// The readable second, zero padded.
         public var description: String {
@@ -239,7 +239,7 @@ public final class ScheduleBuilder {
             }
         }
 
-        init(_ number: Int) {
+        public init(_ number: Int) {
             assert(number >= 0, "Second cannot preceed 0")
             assert(number < 60, "Second cannot exceed 60")
             self.number = number
