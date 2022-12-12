@@ -62,12 +62,12 @@ public final class ScheduleBuilder {
             return "\(self.hour):\(self.minute)"
         }
 
-        init(_ hour: Hour24, _ minute: Minute) {
+        public init(_ hour: Hour24, _ minute: Minute) {
             self.hour = hour
             self.minute = minute
         }
 
-        init(_ hour: Hour12, _ minute: Minute, _ period: HourPeriod) {
+        public init(_ hour: Hour12, _ minute: Minute, _ period: HourPeriod) {
             switch period {
             case .am:
                 if hour.number == 12 && minute.number == 0 {
